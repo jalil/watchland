@@ -1,0 +1,42 @@
+<h5><i><%=link_to @post.title, @post.url %> </h5></i> </br>
+
+<p>
+	
+
+<h4> comments <%=@post.comments.size %></h4>
+<p>
+<ul>
+	<%@post.comments.each do |comment| %>
+
+		<li>
+			<%=comment.content%> 
+		</li>
+
+
+ <% end %>
+
+ </ul>
+<hr>
+   
+ 
+
+<%=form_for  [@post, @comment] do |c| %>
+	
+		<div class=alert alert-errors>
+			<%if @comment.errors.any?%>
+			<% @comment.errors.full_messages.each do %>
+			<%=@comment.errors.full_messages %>
+			<% end %>
+		</div>	
+
+<% end %>
+
+ 
+
+<hr>
+<%=c.text_area :content, :size => "5x2" %></br>
+<%=c.submit "LEAVE  COMMENT" %>
+	
+<% end %>
+
+	

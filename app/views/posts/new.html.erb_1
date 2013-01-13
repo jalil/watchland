@@ -1,0 +1,21 @@
+<%=form_tag posts_path do %>
+
+<ul>
+	<%if  @post.errors.any? %>
+	<div class =alert alert-errors>
+		<%@post.errors.full_messages.each do |msg| %>
+		<li><%= msg %></li>
+		<% end %>
+	</div>
+</ul>
+	<% end %>
+
+	<%=label_tag  "Url" %>
+	<%=text_field_tag  "post[url]" %></br>
+    <%=label_tag  "Title" %>
+	<%=text_field_tag   "post[title]" %></br>
+
+	<%=submit_tag "Save Post" %> 
+	
+	
+<% end %>

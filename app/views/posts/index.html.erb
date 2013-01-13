@@ -1,0 +1,26 @@
+
+<ol class="unstyled">
+
+<%@posts.each do |post| %>
+
+
+ 
+<li>
+	<%=link_to post_votes_path(post, direction: "up"), :method => post  do %>
+     <i class="icon-thumbs-up"></i>
+       <% end %>
+        <%=post.vote_count %>
+       <%=link_to post_votes_path(post, direction: "down"),  :method => post do %>
+     
+       <strong><i class="icon-thumbs-down"></i>
+   <%=display_url(post)%> </strong>
+        <% end %>
+         <h6><%= time_ago_in_words(post.created_at) %>
+        <%=link_to "comments #{post.comments.size}",  post_path(post) %></h6>
+  
+</li>
+
+
+<% end %>
+
+<ol>

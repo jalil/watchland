@@ -1,0 +1,16 @@
+<h2>Please sign in</h2>
+  <% if @user.errors.any? %>
+  		<%=@user.errors.full_messages %>
+  	<% end %> 
+<%=form_for @user do |f| %>
+
+ <%=f.label :username %>
+ <%=f.text_field :username %>
+ 
+ <%=f.label :password %>
+ <%=f.password_field :password %>
+ <br/>
+<%=f.submit "sign in" %>
+
+<% end %>
+
