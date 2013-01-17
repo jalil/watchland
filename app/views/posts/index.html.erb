@@ -15,8 +15,8 @@
        <strong><i class="icon-thumbs-down"></i>
    <%=display_url(post)%> </strong>
         <% end %>
-         <h6><%= time_ago_in_words(post.created_at) %>
-        <%=link_to "comments #{post.comments.size}",  post_path(post) %></h6>
+         <h6><%= time_ago_in_words(post.created_at) %> ago by <%= post.user.username %> &nbsp
+          <%=link_to "comments #{post.comments.size}",  post_path(post) %></h6> 
   
 </li>
 

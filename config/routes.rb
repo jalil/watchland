@@ -8,8 +8,8 @@ Watch::Application.routes.draw do
 
   get "posts/about"
   get "posts/contact"
-  resources :users do
-  resources :posts 
+  resources :users
+  resources :posts do
 	resource  :comments
   	resource :votes
 end

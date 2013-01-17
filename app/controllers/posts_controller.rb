@@ -6,7 +6,7 @@ class PostsController < ApplicationController
 
 	def new
 		 @post = Post.new
-
+		 
 		 
 	end
 
@@ -22,12 +22,15 @@ class PostsController < ApplicationController
 	end
 
 	def create
-		 @post =Post.create(params[:post])
-		 	if @post.valid?
+		 @post =Post.new(params[:post])
+		 @post.user = current_user
+		 
+		 
+		 	if @post.save
 				redirect_to root_path
 			else
 				redirect_to new_post_path
-			end
+			end	
 
 	end
 

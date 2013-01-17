@@ -1,3 +1,5 @@
+
+<% unless logged_in? %>
 <h5><i><%=link_to @post.title, @post.url %> </h5></i> </br>
 
 <p>
@@ -9,34 +11,27 @@
 	<%@post.comments.each do |comment| %>
 
 		<li>
-			<%=comment.content%> 
+			   
+			   posted by <i><%=link_to comment.post.user.username,  user_path %> </br></i>
+			   <%=comment.content%> 
 		</li>
 
 
  <% end %>
 
  </ul>
-<hr>
-   
- 
 
-<%=form_for  [@post, @comment] do |c| %>
+ <br/>
+<% else %>
+
+
 	
-		<div class=alert alert-errors>
-			<%if @comment.errors.any?%>
-			<% @comment.errors.full_messages.each do %>
-			<%=@comment.errors.full_messages %>
-			<% end %>
-		</div>	
 
-<% end %>
-
- 
-
-<hr>
+ <h4> Comment </h4>
+<%=form_for [@post, @comment] do |c| %>
 <%=c.text_area :content, :size => "5x2" %></br>
 <%=c.submit "LEAVE  COMMENT" %>
-	
-<% end %>
 
+<% end %>
+<% end %>
 	

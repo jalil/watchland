@@ -1,10 +1,12 @@
-
-
-<%= form_tag posts_path do %>
-	<%= label_tag :title, "Title" %>
-	<%= text_field_tag "post[title]" %>
-	<%= label_tag :url, "URL" %>
-	<%= text_field_tag "post[url]" %>
-	<br/>
-	<%= submit_tag "Submit a Link" %>
+<%=form_for @post do |f| %>
+	<%if !@post.errors.any? %>
+		<%@post.errors.full_messages.each do |msg| %>
+		<%=msg %>
+		<% end %>
+<% end %>
+	<%= label_tag  "Title" %>
+	<%=f.text_field :title %>
+	<%= label_tag  "Url" %>
+	<%=f.text_field :url %></br>
+	<%=f.submit "Submit" %>	
 <% end %>

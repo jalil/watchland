@@ -4,11 +4,16 @@ class UsersController < ApplicationController
 	end
 
 	def create
-		@user = User.create(params[:user])
+		@user = User.new(params[:user])
 			if @user.save 
-				redirect_to root_path
+				redirect_to login_path, notice:  "Successfully registered"
 			else
-				render 'new'
+				render 'new', :error => " Regitration had some error"
 			end
 	end
+
+		def show
+			@user = User.find(params[:id])
+			@posts = @user.posts
+		end
 end

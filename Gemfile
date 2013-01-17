@@ -5,6 +5,8 @@ gem 'bootstrap-sass'
 gem 'font-awesome-rails'
 gem 'bcrypt-ruby'
 
+gem 'twitter'
+
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 

@@ -1,4 +1,5 @@
-<h2>Please sign in</h2>
+<h2>Please  register Here </h2>
+<p>
   <% if @user.errors.any? %>
   		<%=@user.errors.full_messages %>
   	<% end %> 
@@ -7,8 +8,12 @@
  <%=f.label :username %>
  <%=f.text_field :username %>
  
+
  <%=f.label :password %>
  <%=f.password_field :password %>
+
+<%=f.label :twitter_handle %>
+<%=f.text_field :twitter_handle %>
  <br/>
 <%=f.submit "sign in" %>
 
