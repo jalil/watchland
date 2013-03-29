@@ -1,5 +1,4 @@
 
-<% unless logged_in? %>
 <h5><i><%=link_to @post.title, @post.url %> </h5></i> </br>
 
 <p>
@@ -22,7 +21,6 @@
  </ul>
 
  <br/>
-<% else %>
 
 
 	
@@ -32,6 +30,5 @@
 <%=c.text_area :content, :size => "5x2" %></br>
 <%=c.submit "LEAVE  COMMENT" %>
 
-<% end %>
 <% end %>
 	
